@@ -2,7 +2,23 @@ import type { NextConfig } from "next";
 import withLinaria from "next-with-linaria";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/components",
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/components/:path*",
+        destination: "/:path*",
+      },
+    ];
+  },
   reactCompiler: true,
 };
 
