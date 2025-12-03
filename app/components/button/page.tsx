@@ -1,11 +1,14 @@
+import Heading from "@/components/atoms/Heading";
 import Section from "@/components/atoms/Section";
 
 export default function ButtonPage() {
   return (
     <Section>
-      <h1>Button</h1>
+      <Heading>Button</Heading>
       To trigger an operation.
-      <h2 id="when-to-use">When To Use</h2>
+      <Heading as="h2" id="when-to-use">
+        When To Use
+      </Heading>
       <p>
         A button means an operation (or a series of operations). Clicking a
         button will trigger its corresponding business logic.
@@ -41,7 +44,9 @@ export default function ButtonPage() {
           multiple submits too.
         </li>
       </ul>
-      <h2 id="examples">Examples</h2>
+      <Heading as="h2" id="examples">
+        Examples
+      </Heading>
       <button>Button</button>
     </Section>
   );
