@@ -2,6 +2,12 @@ import { styled } from "@linaria/react";
 
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
+type HeadingProps = {
+  children: React.ReactNode;
+  as?: HeadingTag;
+  id?: string;
+};
+
 const Anchor = styled.a`
   position: absolute;
   inset-inline-end: 100%;
@@ -15,15 +21,7 @@ const H = styled.h1`
   }
 `;
 
-const Heading = ({
-  children,
-  as,
-  id,
-}: Readonly<{
-  children: React.ReactNode;
-  as?: HeadingTag;
-  id?: string;
-}>) => (
+const Heading = ({ children, as, id }: HeadingProps) => (
   <H as={as}>
     {children}
     {id && (
