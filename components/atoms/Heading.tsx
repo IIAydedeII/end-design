@@ -22,7 +22,7 @@ const H = styled.h1`
 `;
 
 const Heading = ({ children, as, id }: HeadingProps) => (
-  <H as={as}>
+  <H as={as} id={id}>
     {children}
     {id && (
       <Anchor href={`#${id}`} tabIndex={-1}>
