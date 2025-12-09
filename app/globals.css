@@ -1,12 +1,12 @@
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(0, 0%, 12%);
+  --background: oklch(96% 0 0);
+  --text: oklch(from var(--background) calc(1 - l) c h);
+  --accent: 10%;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: hsl(0, 0%, 8%);
-    --foreground: hsl(0, 0%, 86%);
+    --background: oklch(15% 0 0);
   }
 }
 
@@ -20,7 +20,7 @@ body {
 }
 
 body {
-  color: var(--foreground);
+  color: var(--text);
   background: var(--background);
   font-family: system-ui, sans-serif;
 }
@@ -28,4 +28,97 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+[data-theme] {
+  --theme-hover: oklch(from var(--theme) calc(l + var(--accent) / 100%) c h);
+  --theme-active: oklch(from var(--theme) calc(l - var(--accent) / 100%) c h);
+}
+
+[data-theme="blue"] {
+  --theme: #1368df;
+  @media (prefers-color-scheme: dark) {
+    --theme: #1677ff;
+  }
+}
+
+[data-theme="purple"] {
+  --theme: #722ed1;
+  @media (prefers-color-scheme: dark) {
+    --theme: #9951ff;
+  }
+}
+
+[data-theme="cyan"] {
+  --theme: #0c7a7a;
+  @media (prefers-color-scheme: dark) {
+    --theme: #13c2c2;
+  }
+}
+
+[data-theme="green"] {
+  --theme: #347d11;
+  @media (prefers-color-scheme: dark) {
+    --theme: #52c41a;
+  }
+}
+
+[data-theme="magenta"] {
+  --theme: #c82880;
+  @media (prefers-color-scheme: dark) {
+    --theme: #eb2f96;
+  }
+}
+
+[data-theme="pink"] {
+  --theme: #c82880;
+  @media (prefers-color-scheme: dark) {
+    --theme: #eb2f96;
+  }
+}
+
+[data-theme="red"] {
+  --theme: #d61e27;
+  @media (prefers-color-scheme: dark) {
+    --theme: #f5222d;
+  }
+}
+
+[data-theme="orange"] {
+  --theme: #a35b0e;
+  @media (prefers-color-scheme: dark) {
+    --theme: #fa8c16;
+  }
+}
+
+[data-theme="yellow"] {
+  --theme: #7d6d0a;
+  @media (prefers-color-scheme: dark) {
+    --theme: #fadb14;
+  }
+}
+
+[data-theme="volcano"] {
+  --theme: #fa541c;
+}
+
+[data-theme="geekblue"] {
+  --theme: #2f54eb;
+  @media (prefers-color-scheme: dark) {
+    --theme: #4a6eff;
+  }
+}
+
+[data-theme="lime"] {
+  --theme: #587709;
+  @media (prefers-color-scheme: dark) {
+    --theme: #a0d911;
+  }
+}
+
+[data-theme="gold"] {
+  --theme: #92650b;
+  @media (prefers-color-scheme: dark) {
+    --theme: #faad14;
+  }
 }
