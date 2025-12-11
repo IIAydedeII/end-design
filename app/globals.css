@@ -35,6 +35,7 @@ a {
 [data-theme] {
   --theme-hover: oklch(from var(--theme) calc(l + var(--accent) / 100%) c h);
   --theme-active: oklch(from var(--theme) calc(l - var(--accent) / 100%) c h);
+  --theme: var(--text);
 }
 
 [data-theme="blue"] {

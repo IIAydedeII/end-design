@@ -81,14 +81,14 @@ const variantMap: Record<Variant, LinariaClassName> = {
 
 const Button = ({
   children,
-  themeColor = "blue",
+  themeColor,
   variant = "outlined",
   ...rest
 }: ButtonProps) => (
   <StyledButton
     className={variantMap[variant]}
     variant={variant}
-    data-theme={themeColor}
+    data-theme={themeColor || ""}
     {...rest}>
     {children}
   </StyledButton>
