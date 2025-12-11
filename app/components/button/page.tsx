@@ -17,7 +17,7 @@ export default function ButtonPage() {
     <Section>
       <Heading>Button</Heading>
       To trigger an operation.
-      <Heading as="h2" id="when-to-use">
+      <Heading renderAs="h2" id="when-to-use">
         When To Use
       </Heading>
       <p>
@@ -57,7 +57,7 @@ export default function ButtonPage() {
         </dt>
         <dd>Adds a loading spinner in button, avoids multiple submits too.</dd>
       </dl>
-      <Heading as="h2" id="examples">
+      <Heading renderAs="h2" id="examples">
         Examples
       </Heading>
       <Container>

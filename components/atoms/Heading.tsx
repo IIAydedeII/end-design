@@ -4,7 +4,7 @@ type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 type HeadingProps = {
   children: React.ReactNode;
-  as?: HeadingTag;
+  renderAs?: HeadingTag;
   id?: string;
 };
 
@@ -21,8 +21,8 @@ const H = styled.h1`
   }
 `;
 
-const Heading = ({ children, as, id }: HeadingProps) => (
-  <H as={as} id={id}>
+const Heading = ({ children, renderAs, id }: HeadingProps) => (
+  <H as={renderAs} id={id}>
     {children}
     {id && (
       <Anchor href={`#${id}`} tabIndex={-1}>
