@@ -18,6 +18,9 @@ const StyledButton = styled.button<{ variant?: Variant }>`
   border-style: ${({ variant }) => (variant === "dashed" ? "dashed" : "solid")};
   font-family: inherit;
   font-size: 1rem;
+  transition-property: color, background-color;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-function);
 `;
 
 const StyleSolid = css`
@@ -32,6 +35,8 @@ const StyleSolid = css`
   &:active {
     background-color: var(--theme-active);
     border-color: var(--theme-active);
+    box-shadow: none;
+    transform: translateY(1px);
   }
 `;
 

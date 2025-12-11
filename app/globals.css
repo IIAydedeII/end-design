@@ -2,6 +2,8 @@
   --background: oklch(96% 0 0);
   --text: oklch(from var(--background) calc(1 - l) c h);
   --accent: 10%;
+  --transition-duration: 0.2s;
+  --transition-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media (prefers-color-scheme: dark) {
