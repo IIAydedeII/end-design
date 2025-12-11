@@ -11,7 +11,7 @@ type ButtonProps = {
 } & React.ComponentPropsWithRef<"button">;
 
 const StyledButton = styled.button<{ variant?: Variant }>`
-  height: 2rem;
+  min-height: 2rem;
   padding: 0 1rem;
   border-radius: 0.5rem;
   border-width: 1px;
