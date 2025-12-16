@@ -1,12 +1,13 @@
-import { styled } from "@linaria/react";
 import React from "react";
+import { styled } from "@linaria/react";
+import { slugify } from "@/utils/stringUtils";
 import Heading from "../atoms/Heading";
 
 type DemoProps = {
   children: React.ReactNode;
   title: string;
   htmlText: string;
-} & React.ComponentPropsWithRef<"button">;
+};
 
 const StyledHeading = styled(Heading)`
   position: absolute;
@@ -27,20 +28,21 @@ const Content = styled.div`
   margin: 1.5rem;
 `;
 
-const Card = styled.div`
+const Card = styled.section`
   margin-block: 1rem;
   border: 1px solid oklch(from var(--text) l c h / 0.3);
   border-radius: 0.5rem;
   break-inside: avoid;
+  &:target {
+    outline: 1px solid blue;
+  }
 `;
 
 const Demo = ({ children, title, htmlText }: DemoProps) => (
-  <Card>
+  <Card id={slugify(title)}>
     <Content>{children}</Content>
     <Description>
-      <StyledHeading renderAs="h3" id={title}>
-        {title}
-      </StyledHeading>
+      <StyledHeading renderAs="h1">{title}</StyledHeading>
       <p dangerouslySetInnerHTML={{ __html: htmlText }} />
     </Description>
   </Card>
