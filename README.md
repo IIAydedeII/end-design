@@ -1,4 +1,4 @@
-This is an Ant Design clone to show what I can do so that i don't need to embarass myself with self-employed, unfinished projects. This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is an Ant Design clone that is live on [`end-design.vercel.app`](https://end-design.vercel.app) to show what I can do so that I don't need to embarass myself with self-employed, unfinished projects. This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
