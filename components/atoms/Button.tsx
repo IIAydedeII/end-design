@@ -7,7 +7,7 @@ type Variant = "solid" | "outlined" | "dashed" | "light";
 type ButtonProps = {
   children: React.ReactNode;
   variant?: Variant;
-  themeColor?: PresetColors;
+  themeColor?: "primary" | PresetColor;
 } & React.ComponentPropsWithRef<"button">;
 
 const StyledButton = styled.button<{ variant?: Variant }>`

@@ -72,14 +72,14 @@ export default function ButtonPage() {
           title="Syntactic sugar"
           htmlText="Through the <code>type</code> syntactic sugar, use the preset button styles: <code>primary</code> buttons, <code>default</code> buttons, <code>dashed</code> buttons, <code>text</code> buttons, and <code>link</code> buttons.">
           <Container>
-            <Button variant="solid" themeColor="blue">
+            <Button variant="solid" themeColor="primary">
               Primary Button
             </Button>
-            <Button themeColor="blue">Default Button</Button>
-            <Button variant="dashed" themeColor="blue">
+            <Button themeColor="primary">Default Button</Button>
+            <Button variant="dashed" themeColor="primary">
               Dashed Button
             </Button>
-            <Button variant="light" themeColor="blue">
+            <Button variant="light" themeColor="primary">
               Text Button
             </Button>
           </Container>

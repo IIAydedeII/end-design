@@ -1,4 +1,4 @@
-type PresetColors =
+type PresetColor =
   | "blue"
   | "purple"
   | "cyan"

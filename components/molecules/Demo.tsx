@@ -34,7 +34,7 @@ const Card = styled.section`
   border-radius: 0.5rem;
   break-inside: avoid;
   &:target {
-    outline: 1px solid blue;
+    outline: 1px solid var(--primary);
   }
 `;
 

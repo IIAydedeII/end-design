@@ -1,4 +1,5 @@
 :root {
+  --primary: #1677ff;
   --background: oklch(96% 0 0);
   --text: oklch(from var(--background) calc(1 - l) c h);
   --accent: 10%;
@@ -36,6 +37,10 @@ a {
   --theme-hover: oklch(from var(--theme) calc(l + var(--accent) / 100%) c h);
   --theme-active: oklch(from var(--theme) calc(l - var(--accent) / 100%) c h);
   --theme: var(--text);
+}
+
+[data-theme="primary"] {
+  --theme: var(--primary);
 }
 
 [data-theme="blue"] {
