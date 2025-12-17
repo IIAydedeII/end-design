@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { styled } from "@linaria/react";
 import Button from "@/components/atoms/Button";
 import Heading from "@/components/atoms/Heading";
@@ -180,3 +181,7 @@ export default function ButtonPage() {
     </Section>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Button - End Design",
+};

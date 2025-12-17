@@ -15,10 +15,6 @@ const Components = styled.aside`
   padding-inline: 0.5rem;
 `;
 
-export const metadata: Metadata = {
-  title: "Button - End Design",
-};
-
 export default function ComponentsLayout({
   children,
 }: Readonly<{
