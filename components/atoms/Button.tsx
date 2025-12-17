@@ -7,10 +7,11 @@ type Variant = "solid" | "outlined" | "dashed" | "light";
 type ButtonProps = {
   children: React.ReactNode;
   variant?: Variant;
-  themeColor?: "primary" | PresetColor;
+  block?: boolean;
 } & React.ComponentPropsWithRef<"button">;
 
-const StyledButton = styled.button<{ variant?: Variant }>`
+const StyledButton = styled.button<{ variant?: Variant; block?: boolean }>`
+  width: ${({ block }) => (block ? "100%" : "")};
   min-height: 2rem;
   padding: 0 1rem;
   border-radius: 0.5rem;
@@ -83,6 +84,7 @@ const Button = ({
   children,
   variant = "outlined",
   themeColor,
+  block,
   className,
   ...rest
 }: ButtonProps) => (
@@ -90,6 +92,7 @@ const Button = ({
     className={`${className ?? ""} ${variantMap[variant]}`}
     variant={variant}
     data-theme={themeColor || ""}
+    block={block}
     {...rest}>
     {children}
   </StyledButton>
