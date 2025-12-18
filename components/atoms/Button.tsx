@@ -15,6 +15,7 @@ const StyledButton = styled.button`
   border-radius: 0.35em;
   border-width: 1px;
   border-style: solid;
+  color: var(--text);
   font-family: inherit;
   font-size: 1rem;
   transition-property: color, background-color;
