@@ -11,21 +11,18 @@ type ButtonProps = {
   block?: boolean;
 } & React.ComponentPropsWithRef<"button">;
 
-const StyledButton = styled.button<{ variant?: Variant; block?: boolean }>`
-  width: ${({ block }) => (block ? "100%" : "")};
+const StyledButton = styled.button`
   min-height: 2rem;
   padding: 0 1rem;
   border-radius: 0.5rem;
   border-width: 1px;
-  border-style: ${({ variant }) => (variant === "dashed" ? "dashed" : "solid")};
+  border-style: solid;
   font-family: inherit;
   font-size: 1rem;
   transition-property: color, background-color;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-function);
-`;
-
-const StyleSolid = css`
+  &[data-variant="solid"] {
   color: oklch(from var(--theme) calc((1 - sign(l - 0.7)) / 2) 0 0);
   background-color: var(--theme);
   border-color: var(--theme);
@@ -40,9 +37,9 @@ const StyleSolid = css`
     box-shadow: none;
     transform: translateY(1px);
   }
-`;
-
-const StyleOutlined = css`
+  }
+  &[data-variant="outlined"],
+  &[data-variant="dashed"] {
   color: var(--theme);
   background: var(--background);
   border-color: currentColor;
@@ -52,10 +49,11 @@ const StyleOutlined = css`
   &:active {
     color: var(--theme-active);
   }
-`;
-
-const StyleLight = css`
-  color: var(--text);
+    &[data-variant="dashed"] {
+      border-style: dashed;
+    }
+  }
+  &[data-variant="light"] {
   background-color: color-mix(in oklch, var(--theme), 70% var(--background));
   border-color: color-mix(in oklch, var(--theme), 70% var(--background));
   &:hover {
@@ -72,28 +70,23 @@ const StyleLight = css`
       calc(70% + var(--accent)) var(--background)
     );
   }
+  }
+  &[data-block="true"] {
+    width: 100%;
+  }
 `;
-
-const variantMap: Record<Variant, LinariaClassName> = {
-  solid: StyleSolid,
-  outlined: StyleOutlined,
-  dashed: StyleOutlined,
-  light: StyleLight,
-};
 
 const Button = ({
   children,
   variant = "outlined",
   themeColor,
   block,
-  className,
   ...rest
 }: ButtonProps) => (
   <StyledButton
-    className={`${className ?? ""} ${variantMap[variant]}`}
-    variant={variant}
+    data-variant={variant}
     data-theme={themeColor || ""}
-    block={block}
+    data-block={block}
     {...rest}>
     {children}
   </StyledButton>
