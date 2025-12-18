@@ -6,14 +6,13 @@ type Variant = "solid" | "outlined" | "dashed" | "light" | "text";
 type ButtonProps = {
   children: React.ReactNode;
   variant?: Variant;
-  themeColor?: "primary" | PresetColor;
+  size?: "large" | "small";
   block?: boolean;
 } & React.ComponentPropsWithRef<"button">;
 
 const StyledButton = styled.button`
-  min-height: 2rem;
-  padding: 0 1rem;
-  border-radius: 0.5rem;
+  padding: 0.25rem 1rem;
+  border-radius: 0.35em;
   border-width: 1px;
   border-style: solid;
   font-family: inherit;
@@ -75,6 +74,13 @@ const StyledButton = styled.button`
       );
     }
   }
+  &[data-size="small"] {
+    padding: 0 0.5em;
+  }
+  &[data-size="large"] {
+    padding-block: 0.4em;
+    font-size: large;
+  }
   &[data-block="true"] {
     width: 100%;
   }
@@ -84,12 +90,14 @@ const Button = ({
   children,
   variant = "outlined",
   themeColor,
+  size,
   block,
   ...rest
 }: ButtonProps) => (
   <StyledButton
     data-variant={variant}
     data-theme={themeColor || ""}
+    data-size={size}
     data-block={block}
     {...rest}>
     {children}
