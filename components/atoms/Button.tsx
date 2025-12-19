@@ -41,15 +41,17 @@ const styles = css`
     background-color: var(--theme);
     border-color: var(--theme);
     box-shadow: 0 2px 0 oklch(from var(--theme) l c h / 0.4);
-    &:hover {
-      background-color: var(--theme-hover);
-      border-color: var(--theme-hover);
-    }
-    &:active {
-      background-color: var(--theme-active);
-      border-color: var(--theme-active);
-      box-shadow: none;
-      transform: translateY(1px);
+    &:not(:disabled) {
+      &:hover {
+        background-color: var(--theme-hover);
+        border-color: var(--theme-hover);
+      }
+      &:active {
+        background-color: var(--theme-active);
+        border-color: var(--theme-active);
+        box-shadow: none;
+        transform: translateY(1px);
+      }
     }
   }
   &[data-variant="outlined"],
@@ -57,11 +59,13 @@ const styles = css`
     color: var(--theme);
     background: var(--background);
     border-color: currentColor;
-    &:hover {
-      color: var(--theme-hover);
-    }
-    &:active {
-      color: var(--theme-active);
+    &:not(:disabled) {
+      &:hover {
+        color: var(--theme-hover);
+      }
+      &:active {
+        color: var(--theme-active);
+      }
     }
     &[data-variant="dashed"] {
       border-style: dashed;
@@ -75,19 +79,21 @@ const styles = css`
       background-color: transparent;
       border-color: transparent;
     }
-    &:hover {
-      background-color: color-mix(
-        in oklch,
-        var(--theme),
-        calc(70% - var(--accent)) var(--background)
-      );
-    }
-    &:active {
-      background-color: color-mix(
-        in oklch,
-        var(--theme),
-        calc(70% + var(--accent)) var(--background)
-      );
+    &:not(:disabled) {
+      &:hover {
+        background-color: color-mix(
+          in oklch,
+          var(--theme),
+          calc(70% - var(--accent)) var(--background)
+        );
+      }
+      &:active {
+        background-color: color-mix(
+          in oklch,
+          var(--theme),
+          calc(70% + var(--accent)) var(--background)
+        );
+      }
     }
   }
   &[data-size="small"] {
@@ -99,6 +105,10 @@ const styles = css`
   }
   &[data-block="true"] {
     width: 100%;
+  }
+  &:disabled {
+    filter: grayscale(1);
+    cursor: not-allowed;
   }
 `;
 
