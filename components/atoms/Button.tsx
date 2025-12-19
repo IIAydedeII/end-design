@@ -1,21 +1,35 @@
 import React from "react";
-import { styled } from "@linaria/react";
+import Link, { LinkProps } from "next/link";
+import { css, cx } from "@linaria/core";
 
 type Variant = "solid" | "outlined" | "dashed" | "light" | "text";
 
-type ButtonProps = {
+type BaseProps = {
   children: React.ReactNode;
+  className?: string;
   variant?: Variant;
   themeColor?: "primary" | PresetColor;
   size?: "large" | "small";
   block?: boolean;
-} & React.ComponentPropsWithRef<"button">;
+};
 
-const StyledButton = styled.button`
+type ButtonProps = BaseProps &
+  React.ComponentPropsWithRef<"button"> & {
+    href?: never;
+  };
+
+type AnchorProps = BaseProps &
+  Omit<LinkProps, keyof React.ComponentPropsWithRef<"button">>;
+
+type MixedProps = ButtonProps | AnchorProps;
+
+const styles = css`
+  display: inline-block;
   padding: 0.25rem 1rem;
   border-radius: 0.35em;
   border-width: 1px;
   border-style: solid;
+  box-sizing: border-box;
   color: var(--text);
   font-family: inherit;
   font-size: 1rem;
@@ -90,20 +104,33 @@ const StyledButton = styled.button`
 
 const Button = ({
   children,
+  className,
   variant = "outlined",
   themeColor,
   size,
   block,
   ...rest
-}: ButtonProps) => (
-  <StyledButton
-    data-variant={variant}
-    data-theme={themeColor || ""}
-    data-size={size}
-    data-block={block}
-    {...rest}>
-    {children}
-  </StyledButton>
-);
+}: MixedProps) => {
+  const sharedProps = {
+    className: cx(className, styles),
+    "data-variant": variant,
+    "data-theme": themeColor || "",
+    "data-size": size,
+    "data-block": block,
+  };
+  if (rest.href !== undefined) {
+    return (
+      <Link {...sharedProps} {...rest}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <button {...sharedProps} {...rest}>
+      {children}
+    </button>
+  );
+};
 
 export default Button;
