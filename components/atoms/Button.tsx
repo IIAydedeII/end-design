@@ -11,6 +11,7 @@ type BaseProps = {
   themeColor?: "primary" | PresetColor;
   size?: "large" | "small";
   block?: boolean;
+  ghost?: boolean;
 };
 
 type ButtonProps = BaseProps &
@@ -70,6 +71,9 @@ const styles = css`
     &[data-variant="dashed"] {
       border-style: dashed;
     }
+    &[data-ghost="true"] {
+      background-color: transparent;
+    }
   }
   &[data-variant="light"],
   &[data-variant="text"] {
@@ -119,6 +123,7 @@ const Button = ({
   themeColor,
   size,
   block,
+  ghost,
   ...rest
 }: MixedProps) => {
   const sharedProps = {
@@ -127,6 +132,7 @@ const Button = ({
     "data-theme": themeColor || "",
     "data-size": size,
     "data-block": block,
+    "data-ghost": ghost,
   };
   if (rest.href !== undefined) {
     return (
