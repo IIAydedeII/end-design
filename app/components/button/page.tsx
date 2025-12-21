@@ -92,7 +92,7 @@ export default function ButtonPage() {
         </Demo>
         <Demo
           title="Color"
-          htmlText="<p>You can set the <code>color</code> and <code>variant</code> attributes at the same time can derive more variant buttons.</p>">
+          htmlText="You can set the <code>color</code> and <code>variant</code> attributes at the same time can derive more variant buttons.">
           <Container>
             {SelectPresetColors.map((color) => (
               <Container key={color}>
