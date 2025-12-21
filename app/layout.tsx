@@ -4,12 +4,6 @@ import Link from "next/link";
 import { styled } from "@linaria/react";
 import "./globals.css";
 
-const Footer = styled.footer`
-  padding: 1rem 2.5rem;
-  border-top: 1px solid oklch(from var(--text) l c h / 0.3);
-  background-color: oklch(from var(--primary) l c h / 0.1);
-`;
-
 const Logo = styled(Link)`
   width: min-content;
   display: flex;
@@ -23,7 +17,11 @@ const Logo = styled(Link)`
 `;
 
 const Header = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 1;
   padding: 1rem 2.5rem;
+  background-color: var(--background);
 `;
 
 export const metadata: Metadata = {
@@ -51,11 +49,6 @@ export default function RootLayout({
           </Logo>
         </Header>
         {children}
-        <Footer>
-          <Link href="https://github.com/IIAydedeII/end-design">
-            https://github.com/IIAydedeII/end-design
-          </Link>
-        </Footer>
       </body>
     </html>
   );
