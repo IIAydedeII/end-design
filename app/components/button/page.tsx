@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { styled } from "@linaria/react";
-import Button from "@/components/atoms/Button";
+import Button, { Variants } from "@/components/atoms/Button";
 import Heading from "@/components/atoms/Heading";
 import Section from "@/components/atoms/Section";
 import Demo from "@/components/molecules/Demo";
@@ -21,6 +21,14 @@ const Examples = styled.div`
 `;
 
 export default function ButtonPage() {
+  const SelectPresetColors: (PresetColor | "")[] = [
+    "",
+    "blue",
+    "red",
+    "pink",
+    "purple",
+    "cyan",
+  ];
   return (
     <Section>
       <Heading>Button</Heading>
@@ -32,7 +40,7 @@ export default function ButtonPage() {
         A button means an operation (or a series of operations). Clicking a
         button will trigger its corresponding business logic.
       </p>
-      <p>In End Design we provide 4 types of button.</p>
+      <p>In End Design we provide 5 types of button.</p>
       <dl>
         <dt>🔵 Solid button:</dt>
         <dd>
@@ -43,15 +51,13 @@ export default function ButtonPage() {
         <dd>Used for a series of actions without priority.</dd>
         <dt>😶 Dashed button:</dt>
         <dd>Commonly used for adding more actions.</dd>
-        <dt>🪶Light button 🆕:</dt>
+        <dt>🔤 Text button:</dt>
+        <dd>Used for the most secondary action.</dd>
+        <dt>🪶 Light button 🆕:</dt>
         <dd>An alternative variant that should’t be named “filled”.</dd>
       </dl>
-      <p>And 4 other properties additionally.</p>
+      <p>And 2 other properties additionally.</p>
       <dl>
-        <dt>
-          🔴 <code>danger</code>:
-        </dt>
-        <dd>Used for actions of risk, like deletion or authorization.</dd>
         <dt>
           👻 <code>ghost</code>:
         </dt>
@@ -60,18 +66,14 @@ export default function ButtonPage() {
           🚫 <code>disabled</code>:
         </dt>
         <dd>Used when actions are not available.</dd>
-        <dt>
-          🔃 <code>loading</code>:
-        </dt>
-        <dd>Adds a loading spinner in button, avoids multiple submits too.</dd>
       </dl>
       <Heading renderAs="h2" id="examples">
         Examples
       </Heading>
       <Examples>
         <Demo
-          title="Syntactic sugar"
-          htmlText="Through the <code>type</code> syntactic sugar, use the preset button styles: <code>primary</code> buttons, <code>default</code> buttons, <code>dashed</code> buttons, <code>text</code> buttons, and <code>link</code> buttons.">
+          title="Variant"
+          htmlText="Through the <code>variant</code> property, use the different button styles: <code>solid</code> buttons, default buttons, <code>dashed</code> buttons, <code>light</code> buttons, and <code>text</code> buttons. No syntactic sugars used to prevent confusion.">
           <Container>
             <Button variant="solid" themeColor="primary">
               Primary Button
@@ -81,100 +83,31 @@ export default function ButtonPage() {
               Dashed Button
             </Button>
             <Button variant="light" themeColor="primary">
+              Light Button
+            </Button>
+            <Button variant="text" themeColor="primary">
               Text Button
             </Button>
           </Container>
         </Demo>
         <Demo
-          title="Icon"
-          htmlText="You can add an icon using the <code>icon</code> property.">
+          title="Color"
+          htmlText="<p>You can set the <code>color</code> and <code>variant</code> attributes at the same time can derive more variant buttons.</p>">
           <Container>
-            <Button variant="solid">Primary Button</Button>
-            <Button>Default Button</Button>
-            <Button variant="dashed">Dashed Button</Button>
-            <Button variant="light">Text Button</Button>
-          </Container>
-        </Demo>
-        <Demo
-          title="Color & Variant"
-          htmlText="You can add an icon using the <code>icon</code> property.">
-          <Container>
-            <Container>
-              <Button variant="solid">Solid</Button>
-              <Button variant="outlined">Outlined</Button>
-              <Button variant="dashed">Dashed</Button>
-              <Button variant="light">Light</Button>
-            </Container>
-            <Container>
-              <Button variant="solid" themeColor="blue">
-                Solid
-              </Button>
-              <Button variant="outlined" themeColor="blue">
-                Outlined
-              </Button>
-              <Button variant="dashed" themeColor="blue">
-                Dashed
-              </Button>
-              <Button variant="light" themeColor="blue">
-                Light
-              </Button>
-            </Container>
-            <Container>
-              <Button variant="solid" themeColor="red">
-                Solid
-              </Button>
-              <Button variant="outlined" themeColor="red">
-                Outlined
-              </Button>
-              <Button variant="dashed" themeColor="red">
-                Dashed
-              </Button>
-              <Button variant="light" themeColor="red">
-                Light
-              </Button>
-            </Container>
-            <Container>
-              <Button variant="solid" themeColor="pink">
-                Solid
-              </Button>
-              <Button variant="outlined" themeColor="pink">
-                Outlined
-              </Button>
-              <Button variant="dashed" themeColor="pink">
-                Dashed
-              </Button>
-              <Button variant="light" themeColor="pink">
-                Light
-              </Button>
-            </Container>
-            <Container>
-              <Button variant="solid" themeColor="purple">
-                Solid
-              </Button>
-              <Button variant="outlined" themeColor="purple">
-                Outlined
-              </Button>
-              <Button variant="dashed" themeColor="purple">
-                Dashed
-              </Button>
-              <Button variant="light" themeColor="purple">
-                Light
-              </Button>
-            </Container>
-            <Container>
-              <Button variant="solid" themeColor="cyan">
-                Solid
-              </Button>
-              <Button variant="outlined" themeColor="cyan">
-                Outlined
-              </Button>
-              <Button variant="dashed" themeColor="cyan">
-                Dashed
-              </Button>
-              <Button variant="light" themeColor="cyan">
-                Light
-              </Button>
-            </Container>
+            {SelectPresetColors.map((color) => (
+              <Container key={color}>
+                {Variants.map((variant) => (
+                  <Button
+                    key={`${color}-${variant}`}
+                    size="small"
+                    variant={variant}
+                    themeColor={color || undefined}
+                    style={{ textTransform: "capitalize" }}>
+                    {variant}
+                  </Button>
+                ))}
+              </Container>
+            ))}
           </Container>
         </Demo>
       </Examples>

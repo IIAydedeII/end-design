@@ -4,6 +4,14 @@ import { css, cx } from "@linaria/core";
 
 type Variant = "solid" | "outlined" | "dashed" | "light" | "text";
 
+export const Variants: Variant[] = [
+  "solid",
+  "outlined",
+  "dashed",
+  "light",
+  "text",
+];
+
 type BaseProps = {
   children: React.ReactNode;
   className?: string;
