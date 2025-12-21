@@ -16,6 +16,7 @@ const StyledHeading = styled(Heading)`
   background-color: var(--background);
   outline: 0.5lh solid var(--background);
   font-size: medium;
+  white-space: nowrap;
 `;
 
 const Description = styled.div`

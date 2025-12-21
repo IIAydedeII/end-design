@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 const Examples = styled.div`
-  columns: 2 auto;
+  columns: 2 200px;
   margin-block: 1rem;
   > :first-child,
   > :last-child {
