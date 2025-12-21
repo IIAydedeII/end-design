@@ -12,9 +12,9 @@ type DemoProps = {
 const StyledHeading = styled(Heading)`
   position: absolute;
   top: -0.5lh;
-  margin: 0;
+  margin: 0 -0.5lh;
   background-color: var(--background);
-  outline: 0.5lh solid var(--background);
+  border-inline: 0.5lh solid var(--background);
   font-size: medium;
   white-space: nowrap;
 `;
