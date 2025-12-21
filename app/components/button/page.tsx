@@ -91,6 +91,42 @@ export default function ButtonPage() {
           </Container>
         </Demo>
         <Demo
+          title="Ghost Button"
+          htmlText="The <code>ghost</code> property will make a button's background transparent, this is commonly used in colored background. Will only work for <code>default</code> and <code>dashed</code> buttons.">
+          <Container style={{ backgroundColor: "gainsboro", padding: "1em" }}>
+            <Button themeColor="blue" ghost>
+              Default Button
+            </Button>
+            <Button variant="dashed" themeColor="blue" ghost>
+              Dashed Button
+            </Button>
+            <Button themeColor="red" ghost>
+              Default Button
+            </Button>
+          </Container>
+        </Demo>
+        <Demo
+          title="Block Button"
+          htmlText="The <code>block</code> property will make a button fit to its parent width.">
+          <Container>
+            <Button variant="solid" themeColor="primary" block>
+              Solid Button
+            </Button>
+            <Button themeColor="primary" block>
+              Default Button
+            </Button>
+            <Button variant="dashed" themeColor="primary" block>
+              Dashed Button
+            </Button>
+            <Button variant="light" themeColor="primary" block>
+              Light Button
+            </Button>
+            <Button variant="text" themeColor="primary" block>
+              Text Button
+            </Button>
+          </Container>
+        </Demo>
+        <Demo
           title="Color"
           htmlText="You can set the <code>color</code> and <code>variant</code> attributes at the same time can derive more variant buttons.">
           <Container>
@@ -108,6 +144,27 @@ export default function ButtonPage() {
                 ))}
               </Container>
             ))}
+          </Container>
+        </Demo>
+        <Demo
+          title="Disabled"
+          htmlText="To mark a button as disabled, add the <code>disabled</code> property to the <code>Button</code>.">
+          <Container>
+            <Button variant="solid" themeColor="primary" disabled>
+              Solid Button
+            </Button>
+            <Button themeColor="primary" disabled>
+              Default Button
+            </Button>
+            <Button variant="dashed" themeColor="primary" disabled>
+              Dashed Button
+            </Button>
+            <Button variant="light" themeColor="primary" disabled>
+              Light Button
+            </Button>
+            <Button variant="text" themeColor="primary" disabled>
+              Text Button
+            </Button>
           </Container>
         </Demo>
       </Examples>
