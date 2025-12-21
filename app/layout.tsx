@@ -38,7 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header>
-          <Logo href="/">
+          <Logo href="/" className="a-reset">
             <Image
               src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               alt="End Design Logo"

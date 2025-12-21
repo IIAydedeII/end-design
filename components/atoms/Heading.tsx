@@ -26,7 +26,7 @@ const Heading = ({ children, renderAs, id, ...rest }: HeadingProps) => (
   <H as={renderAs} id={slugify(id)} {...rest}>
     {children}
     {id && (
-      <Anchor href={`#${slugify(id)}`} tabIndex={-1}>
+      <Anchor href={`#${slugify(id)}`} tabIndex={-1} className="a-reset">
         #&nbsp;
       </Anchor>
     )}

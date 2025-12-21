@@ -42,6 +42,7 @@ const styles = css`
   color: var(--text);
   font-family: inherit;
   font-size: 1rem;
+  text-decoration: none;
   transition-property: color, background-color;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-function);
