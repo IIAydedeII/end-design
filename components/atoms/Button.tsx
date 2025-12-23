@@ -97,14 +97,14 @@ const styles = css`
         background-color: color-mix(
           in oklch,
           var(--theme),
-          calc(70% - var(--accent)) var(--background)
+          calc(70% - var(--accent) * 100%) var(--background)
         );
       }
       &:active {
         background-color: color-mix(
           in oklch,
           var(--theme),
-          calc(70% + var(--accent)) var(--background)
+          calc(70% + var(--accent) * 100%) var(--background)
         );
       }
     }
