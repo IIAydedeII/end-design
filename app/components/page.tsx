@@ -38,7 +38,7 @@ export default function ComponentsPage() {
         additionally.
       </p>
       <section>
-        <h2>General</h2>
+        <h2 data-tag="1">General</h2>
         <ComponentsGrid>
           <Link href="components/button">
             <Overview>

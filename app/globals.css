@@ -41,6 +41,20 @@ code {
   text-decoration: none;
 }
 
+[data-tag]::after {
+  content: attr(data-tag);
+  display: inline-block;
+  min-width: 1lh;
+  padding-inline: 0.5ch;
+  margin-inline-start: 1ch;
+  box-sizing: border-box;
+  background-color: oklch(from currentColor l c h / 0.1);
+  border-radius: 0.3em;
+  font-size: small;
+  text-align: center;
+  vertical-align: middle;
+}
+
 [data-theme] {
   --theme-hover: oklch(from var(--theme) calc(l + var(--accent)) c h);
   --theme-active: oklch(from var(--theme) calc(l - var(--accent)) c h);
