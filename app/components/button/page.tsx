@@ -2,9 +2,8 @@ import { Metadata } from "next";
 import { styled } from "@linaria/react";
 import Button, { Variants } from "@/components/atoms/Button";
 import Heading from "@/components/atoms/Heading";
-import Section from "@/components/atoms/Section";
-import Demo from "@/components/molecules/Demo";
 import ToC from "@/components/atoms/ToC";
+import Demo from "@/components/molecules/Demo";
 
 const Container = styled.div`
   display: flex;
@@ -31,9 +30,11 @@ export default function ButtonPage() {
     "cyan",
   ];
   return (
-    <Section>
-      <Heading>Button</Heading>
-      To trigger an operation.
+    <main>
+      <div>
+        <Heading>Button</Heading>
+        To trigger an operation.
+      </div>
       <ToC
         contents={[
           { title: "When To Use" },
@@ -49,142 +50,151 @@ export default function ButtonPage() {
           },
         ]}
       />
-      <Heading renderAs="h2" id="when-to-use">
-        When To Use
-      </Heading>
-      <p>
-        A button means an operation (or a series of operations). Clicking a
-        button will trigger its corresponding business logic.
-      </p>
-      <p>In End Design we provide 5 types of button.</p>
-      <dl>
-        <dt>🔵 Solid button:</dt>
-        <dd>
-          Used for the main action, there can be at most one primary button in a
-          section.
-        </dd>
-        <dt>⚪️ Outlined button (default):</dt>
-        <dd>Used for a series of actions without priority.</dd>
-        <dt>😶 Dashed button:</dt>
-        <dd>Commonly used for adding more actions.</dd>
-        <dt>🔤 Text button:</dt>
-        <dd>Used for the most secondary action.</dd>
-        <dt>🪶 Light button 🆕:</dt>
-        <dd>An alternative variant that should’t be named “filled”.</dd>
-      </dl>
-      <p>And 2 other properties additionally.</p>
-      <dl>
-        <dt>
-          👻 <code>ghost</code>:
-        </dt>
-        <dd>Used in situations with complex background, home pages usually.</dd>
-        <dt>
-          🚫 <code>disabled</code>:
-        </dt>
-        <dd>Used when actions are not available.</dd>
-      </dl>
-      <Heading renderAs="h2" id="examples">
-        Examples
-      </Heading>
-      <Examples>
-        <Demo
-          title="Variant"
-          htmlText="Through the <code>variant</code> property, use the different button styles: <code>solid</code> buttons, default buttons, <code>dashed</code> buttons, <code>light</code> buttons, and <code>text</code> buttons. No syntactic sugars used to prevent confusion.">
-          <Container>
-            <Button variant="solid" themeColor="primary">
-              Primary Button
-            </Button>
-            <Button themeColor="primary">Default Button</Button>
-            <Button variant="dashed" themeColor="primary">
-              Dashed Button
-            </Button>
-            <Button variant="light" themeColor="primary">
-              Light Button
-            </Button>
-            <Button variant="text" themeColor="primary">
-              Text Button
-            </Button>
-          </Container>
-        </Demo>
-        <Demo
-          title="Ghost Button"
-          htmlText="The <code>ghost</code> property will make a button's background transparent, this is commonly used in colored background. Will only work for <code>default</code> and <code>dashed</code> buttons.">
-          <Container style={{ backgroundColor: "gainsboro", padding: "1em" }}>
-            <Button themeColor="blue" ghost>
-              Default Button
-            </Button>
-            <Button variant="dashed" themeColor="blue" ghost>
-              Dashed Button
-            </Button>
-            <Button themeColor="red" ghost>
-              Default Button
-            </Button>
-          </Container>
-        </Demo>
-        <Demo
-          title="Block Button"
-          htmlText="The <code>block</code> property will make a button fit to its parent width.">
-          <Container>
-            <Button variant="solid" themeColor="primary" block>
-              Solid Button
-            </Button>
-            <Button themeColor="primary" block>
-              Default Button
-            </Button>
-            <Button variant="dashed" themeColor="primary" block>
-              Dashed Button
-            </Button>
-            <Button variant="light" themeColor="primary" block>
-              Light Button
-            </Button>
-            <Button variant="text" themeColor="primary" block>
-              Text Button
-            </Button>
-          </Container>
-        </Demo>
-        <Demo
-          title="Color"
-          htmlText="You can set the <code>color</code> and <code>variant</code> attributes at the same time can derive more variant buttons.">
-          <Container>
-            {SelectPresetColors.map((color) => (
-              <Container key={color}>
-                {Variants.map((variant) => (
-                  <Button
-                    key={`${color}-${variant}`}
-                    size="small"
-                    variant={variant}
-                    themeColor={color || undefined}
-                    style={{ textTransform: "capitalize" }}>
-                    {variant}
-                  </Button>
+      <div>
+        <section>
+          <Heading renderAs="h2" id="when-to-use">
+            When To Use
+          </Heading>
+          <p>
+            A button means an operation (or a series of operations). Clicking a
+            button will trigger its corresponding business logic.
+          </p>
+          <p>In End Design we provide 5 types of button.</p>
+          <dl>
+            <dt>🔵 Solid button:</dt>
+            <dd>
+              Used for the main action, there can be at most one primary button
+              in a section.
+            </dd>
+            <dt>⚪️ Outlined button (default):</dt>
+            <dd>Used for a series of actions without priority.</dd>
+            <dt>😶 Dashed button:</dt>
+            <dd>Commonly used for adding more actions.</dd>
+            <dt>🔤 Text button:</dt>
+            <dd>Used for the most secondary action.</dd>
+            <dt>🪶 Light button 🆕:</dt>
+            <dd>An alternative variant that should’t be named “filled”.</dd>
+          </dl>
+          <p>And 2 other properties additionally.</p>
+          <dl>
+            <dt>
+              👻 <code>ghost</code>:
+            </dt>
+            <dd>
+              Used in situations with complex background, home pages usually.
+            </dd>
+            <dt>
+              🚫 <code>disabled</code>:
+            </dt>
+            <dd>Used when actions are not available.</dd>
+          </dl>
+        </section>
+        <section>
+          <Heading renderAs="h2" id="examples">
+            Examples
+          </Heading>
+          <Examples>
+            <Demo
+              title="Variant"
+              htmlText="Through the <code>variant</code> property, use the different button styles: <code>solid</code> buttons, default buttons, <code>dashed</code> buttons, <code>light</code> buttons, and <code>text</code> buttons. No syntactic sugars used to prevent confusion.">
+              <Container>
+                <Button variant="solid" themeColor="primary">
+                  Primary Button
+                </Button>
+                <Button themeColor="primary">Default Button</Button>
+                <Button variant="dashed" themeColor="primary">
+                  Dashed Button
+                </Button>
+                <Button variant="light" themeColor="primary">
+                  Light Button
+                </Button>
+                <Button variant="text" themeColor="primary">
+                  Text Button
+                </Button>
+              </Container>
+            </Demo>
+            <Demo
+              title="Ghost Button"
+              htmlText="The <code>ghost</code> property will make a button's background transparent, this is commonly used in colored background. Will only work for <code>default</code> and <code>dashed</code> buttons.">
+              <Container
+                style={{ backgroundColor: "gainsboro", padding: "1em" }}>
+                <Button themeColor="blue" ghost>
+                  Default Button
+                </Button>
+                <Button variant="dashed" themeColor="blue" ghost>
+                  Dashed Button
+                </Button>
+                <Button themeColor="red" ghost>
+                  Default Button
+                </Button>
+              </Container>
+            </Demo>
+            <Demo
+              title="Block Button"
+              htmlText="The <code>block</code> property will make a button fit to its parent width.">
+              <Container>
+                <Button variant="solid" themeColor="primary" block>
+                  Solid Button
+                </Button>
+                <Button themeColor="primary" block>
+                  Default Button
+                </Button>
+                <Button variant="dashed" themeColor="primary" block>
+                  Dashed Button
+                </Button>
+                <Button variant="light" themeColor="primary" block>
+                  Light Button
+                </Button>
+                <Button variant="text" themeColor="primary" block>
+                  Text Button
+                </Button>
+              </Container>
+            </Demo>
+            <Demo
+              title="Color"
+              htmlText="You can set the <code>color</code> and <code>variant</code> attributes at the same time can derive more variant buttons.">
+              <Container>
+                {SelectPresetColors.map((color) => (
+                  <Container key={color}>
+                    {Variants.map((variant) => (
+                      <Button
+                        key={`${color}-${variant}`}
+                        size="small"
+                        variant={variant}
+                        themeColor={color || undefined}
+                        style={{ textTransform: "capitalize" }}>
+                        {variant}
+                      </Button>
+                    ))}
+                  </Container>
                 ))}
               </Container>
-            ))}
-          </Container>
-        </Demo>
-        <Demo
-          title="Disabled"
-          htmlText="To mark a button as disabled, add the <code>disabled</code> property to the <code>Button</code>.">
-          <Container>
-            <Button variant="solid" themeColor="primary" disabled>
-              Solid Button
-            </Button>
-            <Button themeColor="primary" disabled>
-              Default Button
-            </Button>
-            <Button variant="dashed" themeColor="primary" disabled>
-              Dashed Button
-            </Button>
-            <Button variant="light" themeColor="primary" disabled>
-              Light Button
-            </Button>
-            <Button variant="text" themeColor="primary" disabled>
-              Text Button
-            </Button>
-          </Container>
-        </Demo>
-      </Examples>
-    </Section>
+            </Demo>
+            <Demo
+              title="Disabled"
+              htmlText="To mark a button as disabled, add the <code>disabled</code> property to the <code>Button</code>.">
+              <Container>
+                <Button variant="solid" themeColor="primary" disabled>
+                  Solid Button
+                </Button>
+                <Button themeColor="primary" disabled>
+                  Default Button
+                </Button>
+                <Button variant="dashed" themeColor="primary" disabled>
+                  Dashed Button
+                </Button>
+                <Button variant="light" themeColor="primary" disabled>
+                  Light Button
+                </Button>
+                <Button variant="text" themeColor="primary" disabled>
+                  Text Button
+                </Button>
+              </Container>
+            </Demo>
+          </Examples>
+        </section>
+      </div>
+    </main>
   );
 }
 

@@ -12,6 +12,10 @@ type ToCProps = {
   contents: Content[];
 } & React.ComponentPropsWithoutRef<"nav">;
 
+const Aside = styled.aside`
+  grid-area: toc;
+`;
+
 const ListItem = ({ children, title }: ListItemProps) => (
   <li>
     <a href={`#${slugify(title)}`}>{title}</a>
@@ -20,7 +24,7 @@ const ListItem = ({ children, title }: ListItemProps) => (
 );
 
 const ToC = ({ contents, ...rest }: ToCProps) => (
-  <aside>
+  <Aside>
     <nav {...rest}>
       <ul>
         {contents.map(({ title, subcontents }) => (
@@ -36,7 +40,7 @@ const ToC = ({ contents, ...rest }: ToCProps) => (
         ))}
       </ul>
     </nav>
-  </aside>
+  </Aside>
 );
 
 export default ToC;

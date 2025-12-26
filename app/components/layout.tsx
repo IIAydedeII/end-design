@@ -5,27 +5,50 @@ import { styled } from "@linaria/react";
 import Button from "@/components/atoms/Button";
 
 const StyledButton = styled(Button)`
-  padding-inline: 2rem;
+  padding-inline: 1.5rem;
   text-align: start;
 `;
 
 const ComponentsList = styled.aside`
   position: sticky;
   top: 64px;
-  grid-row: span 2;
+  grid-area: sidebar;
   height: calc(100vh - 64px);
-  padding-inline: 0.5rem;
-  border-right: 1px solid oklch(from var(--text) l c h / 0.05); //temporary
   overflow: auto;
   overscroll-behavior: contain;
 `;
 
 const MainGrid = styled.div`
   display: grid;
-  grid-template-columns: minmax(min-content, 1fr) 5fr;
-  margin-top: calc(2 * 0.67rem);
+  grid-template-areas: "sidebar head toc" "sidebar content toc";
+  grid-template-columns: minmax(min-content, 1fr) 4fr;
+  grid-auto-columns: minmax(min-content, 1fr);
+  grid-template-rows: min-content 1fr;
+  grid-auto-rows: 1fr;
+  column-gap: 3rem;
+  padding-inline: 1rem;
+  margin-block: 2rem;
   h1:first-child {
     margin-top: 0;
+  }
+  main {
+    display: contents;
+    & > :first-child {
+      grid-area: head;
+    }
+    & > :last-child {
+      grid-area: content;
+    }
+  }
+  @media (width < 50rem) {
+    grid-template-areas: "sidebar head" "sidebar toc" "sidebar content";
+    grid-template-rows: min-content min-content;
+  }
+  @media (width < 35rem) {
+    display: block;
+    ${ComponentsList} {
+      display: none;
+    }
   }
 `;
 
@@ -47,7 +70,7 @@ export default function ComponentsLayout({
           Button
         </StyledButton>
       </ComponentsList>
-      <main>{children}</main>
+      {children}
     </MainGrid>
   );
 }
