@@ -63,6 +63,14 @@ export default function ComponentsLayout({
       <List>
         <nav>
           <StyledButton
+            href="/components"
+            variant={pathname === "/components" ? "solid" : "text"}
+            themeColor="primary"
+            size="large"
+            block>
+            Components Overview
+          </StyledButton>
+          <StyledButton
             href="/components/button"
             variant={pathname === "/components/button" ? "solid" : "text"}
             themeColor="primary"
