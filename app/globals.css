@@ -26,6 +26,7 @@ html {
   background: var(--background);
   font-family: system-ui, sans-serif;
   scrollbar-width: thin;
+  scroll-padding-top: calc(64px + 1px);
 }
 
 code {
