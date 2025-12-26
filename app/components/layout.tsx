@@ -9,7 +9,7 @@ const StyledButton = styled(Button)`
   text-align: start;
 `;
 
-const ComponentsList = styled.aside`
+const List = styled.aside`
   position: sticky;
   top: 64px;
   grid-area: sidebar;
@@ -18,7 +18,7 @@ const ComponentsList = styled.aside`
   overscroll-behavior: contain;
 `;
 
-const MainGrid = styled.div`
+const Layout = styled.div`
   display: grid;
   grid-template-areas: "sidebar head toc" "sidebar content toc";
   grid-template-columns: minmax(min-content, 1fr) 4fr;
@@ -46,7 +46,7 @@ const MainGrid = styled.div`
   }
   @media (width < 35rem) {
     display: block;
-    ${ComponentsList} {
+    ${List} {
       display: none;
     }
   }
@@ -59,18 +59,20 @@ export default function ComponentsLayout({
 }>) {
   const pathname = usePathname();
   return (
-    <MainGrid>
-      <ComponentsList>
-        <StyledButton
-          href="/components/button"
-          variant={pathname === "/components/button" ? "solid" : "text"}
-          themeColor="primary"
-          size="large"
-          block>
-          Button
-        </StyledButton>
-      </ComponentsList>
+    <Layout>
+      <List>
+        <nav>
+          <StyledButton
+            href="/components/button"
+            variant={pathname === "/components/button" ? "solid" : "text"}
+            themeColor="primary"
+            size="large"
+            block>
+            Button
+          </StyledButton>
+        </nav>
+      </List>
       {children}
-    </MainGrid>
+    </Layout>
   );
 }
