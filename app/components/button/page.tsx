@@ -4,6 +4,7 @@ import Button, { Variants } from "@/components/atoms/Button";
 import Heading from "@/components/atoms/Heading";
 import Section from "@/components/atoms/Section";
 import Demo from "@/components/molecules/Demo";
+import ToC from "@/components/atoms/ToC";
 
 const Container = styled.div`
   display: flex;
