@@ -13,7 +13,7 @@ const List = styled.aside`
   position: sticky;
   top: 64px;
   grid-area: sidebar;
-  height: calc(100vh - 64px);
+  max-height: calc(100vh - 64px);
   overflow: auto;
   overscroll-behavior: contain;
 `;
@@ -26,6 +26,7 @@ const Layout = styled.div`
   grid-template-rows: min-content 1fr;
   grid-auto-rows: 1fr;
   column-gap: 3rem;
+  align-items: start;
   padding-inline: 1rem;
   margin-block: 2rem;
   h1:first-child {
