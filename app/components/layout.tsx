@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { styled } from "@linaria/react";
 import Button from "@/components/atoms/Button";
@@ -8,12 +7,6 @@ import Button from "@/components/atoms/Button";
 const StyledButton = styled(Button)`
   padding-inline: 2rem;
   text-align: start;
-`;
-
-const Footer = styled.footer`
-  padding: 1rem 2.5rem;
-  border-top: 1px solid oklch(from var(--text) l c h / 0.3);
-  background-color: oklch(from var(--primary) l c h / 0.1);
 `;
 
 const ComponentsList = styled.aside`
@@ -55,11 +48,6 @@ export default function ComponentsLayout({
         </StyledButton>
       </ComponentsList>
       <main>{children}</main>
-      <Footer>
-        <Link href="https://github.com/IIAydedeII/end-design">
-          https://github.com/IIAydedeII/end-design
-        </Link>
-      </Footer>
     </MainGrid>
   );
 }

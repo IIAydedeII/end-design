@@ -16,6 +16,12 @@ const Logo = styled(Link)`
   }
 `;
 
+const Footer = styled.footer`
+  padding: 1rem 2.5rem;
+  border-top: 1px solid oklch(from var(--text) l c h / 0.3);
+  background-color: oklch(from var(--primary) l c h / 0.1);
+`;
+
 const Header = styled.header`
   position: sticky;
   top: 0;
@@ -49,6 +55,11 @@ export default function RootLayout({
           </Logo>
         </Header>
         {children}
+        <Footer>
+          <Link href="https://github.com/IIAydedeII/end-design">
+            https://github.com/IIAydedeII/end-design
+          </Link>
+        </Footer>
       </body>
     </html>
   );
