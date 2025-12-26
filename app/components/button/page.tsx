@@ -33,6 +33,21 @@ export default function ButtonPage() {
     <Section>
       <Heading>Button</Heading>
       To trigger an operation.
+      <ToC
+        contents={[
+          { title: "When To Use" },
+          {
+            title: "Examples",
+            subcontents: [
+              { title: "Variant" },
+              { title: "Color" },
+              { title: "Disabled" },
+              { title: "Ghost Button" },
+              { title: "Block Button" },
+            ],
+          },
+        ]}
+      />
       <Heading renderAs="h2" id="when-to-use">
         When To Use
       </Heading>
