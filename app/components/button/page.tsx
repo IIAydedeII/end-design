@@ -33,7 +33,7 @@ export default function ButtonPage() {
     <main>
       <div>
         <Heading>Button</Heading>
-        To trigger an operation.
+        <p>To trigger an operation.</p>
       </div>
       <ToC
         contents={[

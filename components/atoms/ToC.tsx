@@ -13,12 +13,15 @@ type ToCProps = {
 } & React.ComponentPropsWithoutRef<"nav">;
 
 const Aside = styled.aside`
-  position: sticky;
-  top: 64px;
+  position: relative;
   grid-area: toc;
-  max-height: calc(100vh - 64px);
-  overflow: auto;
-  overscroll-behavior: contain;
+  nav {
+    position: sticky;
+    top: 64px;
+    max-height: calc(100vh - 64px);
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
   ul {
     list-style: none;
     padding-inline-start: 1rem;
