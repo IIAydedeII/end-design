@@ -24,14 +24,29 @@ const Aside = styled.aside`
   }
   ul {
     list-style: none;
-    padding-inline-start: 1rem;
+    padding: 0;
     margin-block: 0;
+    font-size: small;
+  }
+  a {
+    display: inline-block;
+    padding: 0.25rem;
+    padding-inline-start: 1em;
+    border-inline-start: 2px solid oklch(from var(--theme) l c h / 0.3);
+    &:hover {
+      border-color: var(--theme);
+    }
+  }
+  li li a {
+    padding-inline-start: 2em;
   }
 `;
 
 const ListItem = ({ children, title }: ListItemProps) => (
   <li>
-    <a href={`#${slugify(title)}`}>{title}</a>
+    <a href={`#${slugify(title)}`} data-theme>
+      {title}
+    </a>
     {children}
   </li>
 );
