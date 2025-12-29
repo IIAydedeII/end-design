@@ -52,7 +52,7 @@ export default function ButtonPage() {
       />
       <div>
         <section>
-          <Heading renderAs="h2" id="when-to-use">
+          <Heading level={2} id="when-to-use">
             When To Use
           </Heading>
           <p>
@@ -90,7 +90,7 @@ export default function ButtonPage() {
           </dl>
         </section>
         <section>
-          <Heading renderAs="h2" id="examples">
+          <Heading level={2} id="examples">
             Examples
           </Heading>
           <Examples>

@@ -1,13 +1,13 @@
 import { styled } from "@linaria/react";
 import { slugify } from "@/utils/stringUtils";
 
-type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
 type HeadingProps = {
   children: React.ReactNode;
-  renderAs?: HeadingTag;
+  level?: HeadingLevel;
   id?: string;
-} & React.ComponentPropsWithRef<"h1">;
+} & React.ComponentPropsWithoutRef<"h1">;
 
 const Anchor = styled.a`
   position: absolute;
@@ -22,8 +22,8 @@ const H = styled.h1`
   }
 `;
 
-const Heading = ({ children, renderAs, id, ...rest }: HeadingProps) => (
-  <H as={renderAs} id={slugify(id)} {...rest}>
+const Heading = ({ children, level, id, ...rest }: HeadingProps) => (
+  <H as={level && `h${level}`} id={slugify(id)} {...rest}>
     {children}
     {id && (
       <Anchor href={`#${slugify(id)}`} tabIndex={-1} className="a-reset">
