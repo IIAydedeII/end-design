@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { styled } from "@linaria/react";
 import Button, { Variants } from "@/components/atoms/Button";
 import Heading from "@/components/atoms/Heading";
+import Section from "@/components/atoms/Section";
 import ToC from "@/components/atoms/ToC";
 import Demo from "@/components/molecules/Demo";
 
@@ -51,10 +52,7 @@ export default function ButtonPage() {
         ]}
       />
       <div>
-        <section>
-          <Heading level={2} id="when-to-use">
-            When To Use
-          </Heading>
+        <Section heading={{ text: "When to Use", level: 2 }}>
           <p>
             A button means an operation (or a series of operations). Clicking a
             button will trigger its corresponding business logic.
@@ -88,11 +86,8 @@ export default function ButtonPage() {
             </dt>
             <dd>Used when actions are not available.</dd>
           </dl>
-        </section>
-        <section>
-          <Heading level={2} id="examples">
-            Examples
-          </Heading>
+        </Section>
+        <Section heading={{ text: "Examples", level: 2 }}>
           <Examples>
             <Demo
               title="Variant"
@@ -192,7 +187,7 @@ export default function ButtonPage() {
               </Container>
             </Demo>
           </Examples>
-        </section>
+        </Section>
       </div>
     </main>
   );

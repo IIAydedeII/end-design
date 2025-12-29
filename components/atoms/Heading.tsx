@@ -3,7 +3,7 @@ import { slugify } from "@/utils/stringUtils";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
-type HeadingProps = {
+export type HeadingProps = {
   children: React.ReactNode;
   level?: HeadingLevel;
   id?: string;

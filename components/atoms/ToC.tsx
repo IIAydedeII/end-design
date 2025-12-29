@@ -78,10 +78,7 @@ const ToC = ({ contents, ...rest }: ToCProps) => {
       const el = document.getElementById(titleSlug);
       const elSection = el?.closest("section");
 
-      if (elSection) {
-        elSection.setAttribute("aria-labelledby", titleSlug);
-        observer.observe(elSection);
-      }
+      if (elSection) observer.observe(elSection);
     });
 
     return () => observer.disconnect();
