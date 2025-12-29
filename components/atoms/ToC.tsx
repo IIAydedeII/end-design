@@ -34,19 +34,30 @@ const Aside = styled.aside`
     display: inline-block;
     padding: 0.25rem;
     padding-inline-start: 1em;
-    border-inline-start: 2px solid oklch(from var(--theme) l c h / 0.3);
     &:hover {
-      border-color: var(--theme);
+      color: revert;
+      text-decoration: revert;
     }
   }
-  li li a {
-    padding-inline-start: 2em;
+  li {
+    border-inline-start: 2px solid oklch(from var(--theme) l c h / 0.3);
+    &:not([data-theme=""]) {
+      border-color: var(--theme);
+    }
+    li {
+      border: none;
+      a {
+        padding-inline-start: 2em;
+      }
+    }
   }
 `;
 
 const ListItem = ({ children, title, ...rest }: ListItemProps) => (
   <li {...rest}>
-    <a href={title && `#${slugify(title)}`}>{title}</a>
+    <a href={title && `#${slugify(title)}`} className="a-reset">
+      {title}
+    </a>
     {children}
   </li>
 );
