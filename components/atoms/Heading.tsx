@@ -9,26 +9,31 @@ export type HeadingProps = {
   id?: string;
 } & React.ComponentPropsWithoutRef<"h1">;
 
-const Anchor = styled.a`
-  position: absolute;
-  inset-inline-end: 100%;
-  opacity: 0;
-`;
-
 const H = styled.h1`
   position: relative;
-  &:hover ${Anchor} {
-    opacity: revert;
+  a:before {
+    content: "# ";
+    white-space: pre;
+    position: absolute;
+    inset-inline-end: 100%;
+    opacity: 0;
+  }
+  &:hover,
+  &:focus-within {
+    a:before {
+      opacity: revert;
+    }
   }
 `;
 
 const Heading = ({ children, level, id, ...rest }: HeadingProps) => (
   <H as={level && `h${level}`} id={slugify(id)} {...rest}>
-    {children}
-    {id && (
-      <Anchor href={`#${slugify(id)}`} tabIndex={-1} className="a-reset">
-        #&nbsp;
-      </Anchor>
+    {!id ? (
+      <>{children}</>
+    ) : (
+      <a href={`#${slugify(id)}`} className="a-reset">
+        {children}
+      </a>
     )}
   </H>
 );
