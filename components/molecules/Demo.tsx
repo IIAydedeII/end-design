@@ -43,7 +43,7 @@ const Demo = ({ children, title, htmlText }: DemoProps) => (
   <Card id={slugify(title)}>
     <Content>{children}</Content>
     <Description>
-      <StyledHeading renderAs="h1">{title}</StyledHeading>
+      <StyledHeading>{title}</StyledHeading>
       <p dangerouslySetInnerHTML={{ __html: htmlText }} />
     </Description>
   </Card>
