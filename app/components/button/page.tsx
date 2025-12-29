@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import { styled } from "@linaria/react";
 import Button, { Variants } from "@/components/atoms/Button";
 import Heading from "@/components/atoms/Heading";
-import Section from "@/components/atoms/Section";
 import ToC from "@/components/atoms/ToC";
 import Demo from "@/components/molecules/Demo";
+import Section from "@/components/molecules/Section";
 
 const Container = styled.div`
   display: flex;
