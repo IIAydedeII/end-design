@@ -51,11 +51,7 @@ export default function ComponentsPage() {
                       srcSet="button_l.svg"
                       media="(prefers-color-scheme: light)"
                     />
-                    <Image
-                      src="button_d.svg"
-                      layout="fill"
-                      alt="Buttons Illustration"
-                    />
+                    <Image src="button_d.svg" alt="Buttons Illustration" fill />
                   </picture>
                 </div>
               </Overview>
