@@ -46,7 +46,7 @@ const Aside = styled.aside`
 
 const ListItem = ({ children, title, ...rest }: ListItemProps) => (
   <li {...rest}>
-    <a href={`#${slugify(title)}`}>{title}</a>
+    <a href={title && `#${slugify(title)}`}>{title}</a>
     {children}
   </li>
 );
@@ -74,6 +74,7 @@ const ToC = ({ contents, ...rest }: ToCProps) => {
 
     contents.forEach(({ title }) => {
       const titleSlug = slugify(title);
+      if (!titleSlug) return;
       const el = document.getElementById(titleSlug);
       const elSection = el?.closest("section");
 
@@ -94,7 +95,7 @@ const ToC = ({ contents, ...rest }: ToCProps) => {
               title={title}
               key={title}
               data-theme={
-                currentItem.includes(slugify(title)) ? "primary" : ""
+                currentItem.includes(slugify(title) || "") ? "primary" : ""
               }>
               {!!subcontents?.length && (
                 <ul>
