@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { slugify } from "@/utils/stringUtils";
 import { styled } from "@linaria/react";
 
@@ -42,33 +44,71 @@ const Aside = styled.aside`
   }
 `;
 
-const ListItem = ({ children, title }: ListItemProps) => (
-  <li>
-    <a href={`#${slugify(title)}`} data-theme>
-      {title}
-    </a>
+const ListItem = ({ children, title, ...rest }: ListItemProps) => (
+  <li {...rest}>
+    <a href={`#${slugify(title)}`}>{title}</a>
     {children}
   </li>
 );
 
-const ToC = ({ contents, ...rest }: ToCProps) => (
-  <Aside>
-    <nav {...rest}>
-      <ul>
-        {contents.map(({ title, subcontents }) => (
-          <ListItem title={title} key={title}>
-            {!!subcontents?.length && (
-              <ul>
-                {subcontents.map(({ title }) => (
-                  <ListItem title={title} key={title} />
-                ))}
-              </ul>
-            )}
-          </ListItem>
-        ))}
-      </ul>
-    </nav>
-  </Aside>
-);
+const ToC = ({ contents, ...rest }: ToCProps) => {
+  const [currentItem, setCurrentItem] = useState<string[]>([]);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const label = entry.target.getAttribute("aria-labelledby");
+          if (label) {
+            if (entry.isIntersecting) {
+              setCurrentItem((prev) => [...prev, label]);
+            } else {
+              setCurrentItem((prev) => prev.filter((id) => id !== label));
+            }
+          }
+        });
+      },
+      {
+        rootMargin: "-64px 0px 0px 0px",
+      }
+    );
+
+    contents.forEach(({ title }) => {
+      const titleSlug = slugify(title);
+      const el = document.getElementById(titleSlug);
+      const elSection = el?.closest("section");
+
+      if (elSection) {
+        elSection.setAttribute("aria-labelledby", titleSlug);
+        observer.observe(elSection);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [contents]);
+  return (
+    <Aside>
+      <nav {...rest}>
+        <ul>
+          {contents.map(({ title, subcontents }) => (
+            <ListItem
+              title={title}
+              key={title}
+              data-theme={
+                currentItem.includes(slugify(title)) ? "primary" : ""
+              }>
+              {!!subcontents?.length && (
+                <ul>
+                  {subcontents.map(({ title }) => (
+                    <ListItem title={title} key={title} />
+                  ))}
+                </ul>
+              )}
+            </ListItem>
+          ))}
+        </ul>
+      </nav>
+    </Aside>
+  );
+};
 
 export default ToC;
