@@ -41,6 +41,7 @@ const Layout = styled.div`
     }
     & > :last-child {
       grid-area: content;
+      min-width: 0; // important for table inside grid
     }
   }
   @media (width < 50rem) {
