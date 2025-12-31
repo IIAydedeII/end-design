@@ -108,13 +108,17 @@ td {
 
 th {
   position: sticky;
-  inset-block-start: 0;
-  inset-inline-start: 0;
   background-color: var(--background);
+  &:first-child {
+    inset-inline-start: 0;
+  }
 }
 
-thead th:first-child {
+thead th {
+  inset-block-start: 0;
+  &:first-child {
   z-index: 1;
+  }
 }
 
 td:nth-child(3) code {
