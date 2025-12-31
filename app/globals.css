@@ -1,15 +1,42 @@
 :root {
-  --primary: #1677ff;
-  --background: oklch(96% 0 0);
+  --background: oklch(15% 0 0);
   --text: oklch(from var(--background) calc(1 - l) c h);
   --accent: 0.1;
   --transition-duration: 0.2s;
   --transition-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --primary: #1677ff;
+  --blue: #1677ff;
+  --purple: #9951ff;
+  --cyan: #13c2c2;
+  --green: #52c41a;
+  --magenta: #eb2f96;
+  --pink: #eb2f96;
+  --red: #f5222d;
+  --orange: #fa8c16;
+  --yellow: #fadb14;
+  --volcano: #fa541c;
+  --geekblue: #4a6eff;
+  --lime: #a0d911;
+  --gold: #faad14;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: oklch(15% 0 0);
+    --background: oklch(96% 0 0);
+    --primary: #1368df;
+    --blue: #1677ff;
+    --purple: #722ed1;
+    --cyan: #0c7a7a;
+    --green: #347d11;
+    --magenta: #c82880;
+    --pink: #c82880;
+    --red: #d61e27;
+    --orange: #a35b0e;
+    --yellow: #7d6d0a;
+    --volcano: #fa541c;
+    --geekblue: #2f54eb;
+    --lime: #587709;
+    --gold: #92650b;
   }
 }
 
@@ -106,89 +133,53 @@ thead th:first-child {
 }
 
 [data-theme="blue"] {
-  --theme: #1368df;
-  @media (prefers-color-scheme: dark) {
-    --theme: #1677ff;
-  }
+  --theme: var(--blue);
 }
 
 [data-theme="purple"] {
-  --theme: #722ed1;
-  @media (prefers-color-scheme: dark) {
-    --theme: #9951ff;
-  }
+  --theme: var(--purple);
 }
 
 [data-theme="cyan"] {
-  --theme: #0c7a7a;
-  @media (prefers-color-scheme: dark) {
-    --theme: #13c2c2;
-  }
+  --theme: var(--cyan);
 }
 
 [data-theme="green"] {
-  --theme: #347d11;
-  @media (prefers-color-scheme: dark) {
-    --theme: #52c41a;
-  }
+  --theme: var(--green);
 }
 
 [data-theme="magenta"] {
-  --theme: #c82880;
-  @media (prefers-color-scheme: dark) {
-    --theme: #eb2f96;
-  }
+  --theme: var(--magenta);
 }
 
 [data-theme="pink"] {
-  --theme: #c82880;
-  @media (prefers-color-scheme: dark) {
-    --theme: #eb2f96;
-  }
+  --theme: var(--pink);
 }
 
 [data-theme="red"] {
-  --theme: #d61e27;
-  @media (prefers-color-scheme: dark) {
-    --theme: #f5222d;
-  }
+  --theme: var(--red);
 }
 
 [data-theme="orange"] {
-  --theme: #a35b0e;
-  @media (prefers-color-scheme: dark) {
-    --theme: #fa8c16;
-  }
+  --theme: var(--orange);
 }
 
 [data-theme="yellow"] {
-  --theme: #7d6d0a;
-  @media (prefers-color-scheme: dark) {
-    --theme: #fadb14;
-  }
+  --theme: var(--yellow);
 }
 
 [data-theme="volcano"] {
-  --theme: #fa541c;
+  --theme: var(--volcano);
 }
 
 [data-theme="geekblue"] {
-  --theme: #2f54eb;
-  @media (prefers-color-scheme: dark) {
-    --theme: #4a6eff;
-  }
+  --theme: var(--geekblue);
 }
 
 [data-theme="lime"] {
-  --theme: #587709;
-  @media (prefers-color-scheme: dark) {
-    --theme: #a0d911;
-  }
+  --theme: var(--lime);
 }
 
 [data-theme="gold"] {
-  --theme: #92650b;
-  @media (prefers-color-scheme: dark) {
-    --theme: #faad14;
-  }
+  --theme: var(--gold);
 }
