@@ -86,7 +86,7 @@ div:has(> table) {
 
 table {
   border-spacing: 0;
-  z-index: 0;
+  isolation: isolate;
   & > :last-child tr:last-child {
     th,
     td {
