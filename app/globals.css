@@ -57,11 +57,25 @@ html {
 }
 
 code {
+  font-size: small;
+  line-height: calc(1rem + 2 * 0.2em);
   padding: 0.2em 0.4em;
   border: 1px solid oklch(from currentColor l c h / 0.3);
-  margin-inline: 1px;
+  margin: 0.2em 1px;
   background-color: oklch(from currentColor l c h / 0.05);
   border-radius: 0.3em;
+  tab-size: 4;
+}
+
+pre {
+  code {
+    display: inline-block;
+  }
+  &:has(code) {
+    display: inline-block;
+    margin: 0;
+    vertical-align: text-top;
+  }
 }
 
 div:has(> table) {
@@ -101,6 +115,10 @@ th {
 
 thead th:first-child {
   z-index: 1;
+}
+
+td:nth-child(3) code {
+  color: var(--pink);
 }
 
 .a-reset {

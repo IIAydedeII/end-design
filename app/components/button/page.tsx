@@ -227,7 +227,9 @@ export default function ButtonPage() {
                     <code>block</code>
                   </th>
                   <td>Option to fit button width to its parent width</td>
-                  <td>boolean</td>
+                  <td>
+                    <code>boolean</code>
+                  </td>
                   <td>false</td>
                   <td></td>
                 </tr>
@@ -240,11 +242,21 @@ export default function ButtonPage() {
                     component. Supports object or function.
                   </td>
                   <td>
-                    Record&lt;
-                    <a href="/components/button#semantic-dom">SemanticDOM</a>,
-                    string&gt; | {"(info: { props })"}=&gt; Record&lt;
-                    <a href="/components/button#semantic-dom">SemanticDOM</a>,
-                    string&gt;
+                    <code>
+                      {`Record<`}
+                      <a href="/components/button#semantic-dom">SemanticDOM</a>
+                      {`, string>`}
+                    </code>{" "}
+                    |{" "}
+                    <pre>
+                      <code>
+                        {`(info: { props }) => \n\tRecord<`}
+                        <a href="/components/button#semantic-dom">
+                          SemanticDOM
+                        </a>
+                        {`, string>`}
+                      </code>
+                    </pre>
                   </td>
                   <td>-</td>
                   <td></td>
@@ -257,7 +269,9 @@ export default function ButtonPage() {
                   <td>
                     <code>default</code> | <code>primary</code> |{" "}
                     <code>danger</code> |{" "}
+                    <code>
                     <a href="/components/button#presetcolors">PresetColors</a>
+                    </code>
                   </td>
                   <td>-</td>
                   <td>
@@ -283,7 +297,9 @@ export default function ButtonPage() {
                     <code>disabled</code>
                   </th>
                   <td>Disabled state of button</td>
-                  <td>boolean</td>
+                  <td>
+                    <code>boolean</code>
+                  </td>
                   <td>false</td>
                   <td></td>
                 </tr>
@@ -295,7 +311,9 @@ export default function ButtonPage() {
                     Make background transparent and invert text and border
                     colors
                   </td>
-                  <td>boolean</td>
+                  <td>
+                    <code>boolean</code>
+                  </td>
                   <td>false</td>
                   <td></td>
                 </tr>
@@ -304,7 +322,9 @@ export default function ButtonPage() {
                     <code>href</code>
                   </th>
                   <td>Redirect url of link button</td>
-                  <td>string</td>
+                  <td>
+                    <code>string</code>
+                  </td>
                   <td>-</td>
                   <td></td>
                 </tr>
@@ -414,11 +434,21 @@ export default function ButtonPage() {
                     the component. Supports object or function.
                   </td>
                   <td>
-                    Record&lt;
-                    <a href="/components/button#semantic-dom">SemanticDOM</a>,
-                    CSSProperties&gt; | {"(info: { props })"}=&gt; Record&lt;
-                    <a href="/components/button#semantic-dom">SemanticDOM</a>,
-                    CSSProperties&gt;
+                    <code>
+                      {`Record<`}
+                      <a href="/components/button#semantic-dom">SemanticDOM</a>
+                      {`, CSSProperties>`}
+                    </code>{" "}
+                    |{" "}
+                    <pre>
+                      <code>
+                        {`(info: { props }) => \n\tRecord<`}
+                        <a href="/components/button#semantic-dom">
+                          SemanticDOM
+                        </a>
+                        {`, CSSProperties>`}
+                      </code>
+                    </pre>
                   </td>
                   <td>-</td>
                   <td></td>
@@ -430,7 +460,9 @@ export default function ButtonPage() {
                   <td>
                     Same as target attribute of a, works when href is specified
                   </td>
-                  <td>string</td>
+                  <td>
+                    <code>string</code>
+                  </td>
                   <td>-</td>
                   <td></td>
                 </tr>
@@ -459,8 +491,9 @@ export default function ButtonPage() {
                     Set the handler to handle <code>click</code> event
                   </td>
                   <td>
-                    (event: React.MouseEvent&lt;HTMLElement, MouseEvent&gt;)
-                    =&gt; void
+                    <pre>
+                      <code>{`(event: React.MouseEvent<\n\tHTMLElement,\n\tMouseEvent\n>) => void`}</code>
+                    </pre>
                   </td>
                   <td>-</td>
                   <td></td>
