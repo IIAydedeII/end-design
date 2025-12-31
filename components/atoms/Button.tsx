@@ -23,12 +23,11 @@ type BaseProps = {
 };
 
 type ButtonProps = BaseProps &
-  React.ComponentPropsWithRef<"button"> & {
+  React.ComponentPropsWithoutRef<"button"> & {
     href?: never;
   };
 
-type AnchorProps = BaseProps &
-  Omit<LinkProps, keyof React.ComponentPropsWithRef<"button">>;
+type AnchorProps = BaseProps & LinkProps & React.ComponentPropsWithoutRef<"a">;
 
 type MixedProps = ButtonProps | AnchorProps;
 
