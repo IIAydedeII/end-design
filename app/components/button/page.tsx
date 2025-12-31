@@ -51,6 +51,7 @@ export default function ButtonPage() {
           },
           {
             title: "API",
+            subcontents: [{ title: "PresetColor" }],
           },
         ]}
       />
@@ -274,7 +275,7 @@ export default function ButtonPage() {
                   <td>
                     <code>&quot;primary&quot;</code> |{" "}
                     <code>
-                      <a href="/components/button#presetcolors">PresetColors</a>
+                      <a href="/components/button#presetcolor">PresetColor</a>
                     </code>
                   </td>
                   <td>-</td>
@@ -534,6 +535,14 @@ export default function ButtonPage() {
               </tbody>
             </table>
           </div>
+          <Heading level={3} id="PresetColor">
+            PresetColor
+          </Heading>
+          <code>
+            {
+              'type PresetColor = "blue" | "purple" | "cyan" | "green" | "magenta" | "pink" | "red" | "orange"  | "yellow" | "volcano" | "geekblue" | "lime" | "gold";'
+            }
+          </code>
         </Section>
       </div>
     </main>
