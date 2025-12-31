@@ -230,10 +230,12 @@ export default function ButtonPage() {
                   <td>
                     <code>boolean</code>
                   </td>
-                  <td>false</td>
+                  <td>
+                    <code>false</code>
+                  </td>
                   <td></td>
                 </tr>
-                <tr>
+                {/* <tr>
                   <th>
                     <code>classNames</code>
                   </th>
@@ -260,24 +262,23 @@ export default function ButtonPage() {
                   </td>
                   <td>-</td>
                   <td></td>
-                </tr>
+                </tr> */}
                 <tr>
                   <th>
-                    <code>color</code>
+                    <code>themeColor</code>
                   </th>
                   <td>Set button color</td>
                   <td>
-                    <code>default</code> | <code>primary</code> |{" "}
-                    <code>danger</code> |{" "}
+                    <code>"primary"</code> |{" "}
                     <code>
-                    <a href="/components/button#presetcolors">PresetColors</a>
+                      <a href="/components/button#presetcolors">PresetColors</a>
                     </code>
                   </td>
                   <td>-</td>
                   <td>
-                    <code>default</code>, <code>primary</code> and{" "}
+                    {/* <code>default</code>, <code>primary</code> and{" "}
                     <code>danger</code>: 5.21.0, <code>PresetColors</code>:
-                    5.23.0
+                    5.23.0 */}
                   </td>
                 </tr>
                 {/* <tr>
@@ -300,7 +301,9 @@ export default function ButtonPage() {
                   <td>
                     <code>boolean</code>
                   </td>
-                  <td>false</td>
+                  <td>
+                    <code>false</code>
+                  </td>
                   <td></td>
                 </tr>
                 <tr>
@@ -309,42 +312,48 @@ export default function ButtonPage() {
                   </th>
                   <td>
                     Make background transparent and invert text and border
-                    colors
+                    colors for <code>default</code> and <code>dashed</code>{" "}
+                    buttons
                   </td>
                   <td>
                     <code>boolean</code>
                   </td>
-                  <td>false</td>
+                  <td>
+                    <code>false</code>
+                  </td>
                   <td></td>
                 </tr>
                 <tr>
                   <th>
                     <code>href</code>
                   </th>
-                  <td>Redirect url of link button</td>
                   <td>
-                    <code>string</code>
+                    Render and act like a link but with the style of a button
+                  </td>
+                  <td>
+                    <code>Url</code>
                   </td>
                   <td>-</td>
                   <td></td>
                 </tr>
                 <tr>
                   <th>
-                    <code>htmlType</code>
+                    <code>type</code>
                   </th>
                   <td>
-                    Set the original html <code>type</code> of{" "}
-                    <code>button</code>, see:{" "}
+                    Set the original html <code>[type]</code> of{" "}
+                    <code>{`<button>`}</code> (see:{" "}
                     <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#type">
                       MDN
                     </a>
+                    )
                   </td>
                   <td>
-                    <code>submit</code> | <code>reset</code> |{" "}
-                    <code>button</code>
+                    <code>"submit"</code> | <code>"reset"</code> |{" "}
+                    <code>"button"</code>
                   </td>
                   <td>
-                    <code>button</code>
+                    <code>"button"</code>
                   </td>
                   <td></td>
                 </tr>
@@ -425,7 +434,7 @@ export default function ButtonPage() {
                   </td>
                   <td></td>
                 </tr> */}
-                <tr>
+                {/* <tr>
                   <th>
                     <code>styles</code>
                   </th>
@@ -452,16 +461,21 @@ export default function ButtonPage() {
                   </td>
                   <td>-</td>
                   <td></td>
-                </tr>
+                </tr> */}
                 <tr>
                   <th>
                     <code>target</code>
                   </th>
                   <td>
-                    Same as target attribute of a, works when href is specified
+                    Same as <code>[target]</code> of <code>{`<a>`}</code>, works
+                    when <code>href</code> is specified (see:{" "}
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target">
+                      MDN
+                    </a>
+                    )
                   </td>
                   <td>
-                    <code>string</code>
+                    <code>HTMLAttributeAnchorTarget</code>
                   </td>
                   <td>-</td>
                   <td></td>
@@ -487,12 +501,12 @@ export default function ButtonPage() {
                   <th>
                     <code>onClick</code>
                   </th>
-                  <td>
-                    Set the handler to handle <code>click</code> event
-                  </td>
+                  <td>Set the handler to handle onclick event</td>
                   <td>
                     <pre>
-                      <code>{`(event: React.MouseEvent<\n\tHTMLElement,\n\tMouseEvent\n>) => void`}</code>
+                      <code>
+                        {`React.MouseEventHandler<\n\tHTMLAnchorElement |\n\tHTMLButtonElement\n>`}
+                      </code>
                     </pre>
                   </td>
                   <td>-</td>
@@ -504,12 +518,12 @@ export default function ButtonPage() {
                   </th>
                   <td>Set button variant</td>
                   <td>
-                    <code>outlined</code> | <code>dashed</code> |{" "}
-                    <code>solid</code> | <code>filled</code> | <code>text</code>{" "}
-                    | <code>link</code>
+                    <code>"solid"</code> | <code>"outlined"</code> |{" "}
+                    <code>"dashed"</code> | <code>"light"</code> |{" "}
+                    <code>"text"</code>
                   </td>
                   <td>-</td>
-                  <td>5.21.0</td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
