@@ -43,11 +43,14 @@ export default function ButtonPage() {
             title: "Examples",
             subcontents: [
               { title: "Variant" },
-              { title: "Color" },
-              { title: "Disabled" },
               { title: "Ghost Button" },
               { title: "Block Button" },
+              { title: "Color" },
+              { title: "Disabled" },
             ],
+          },
+          {
+            title: "API",
           },
         ]}
       />
