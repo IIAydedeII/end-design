@@ -272,7 +272,7 @@ export default function ButtonPage() {
                   </th>
                   <td>Set button color</td>
                   <td>
-                    <code>"primary"</code> |{" "}
+                    <code>&quot;primary&quot;</code> |{" "}
                     <code>
                       <a href="/components/button#presetcolors">PresetColors</a>
                     </code>
@@ -352,11 +352,12 @@ export default function ButtonPage() {
                     )
                   </td>
                   <td>
-                    <code>"submit"</code> | <code>"reset"</code> |{" "}
-                    <code>"button"</code>
+                    <code>&quot;submit&quot;</code> |{" "}
+                    <code>&quot;reset&quot;</code> |{" "}
+                    <code>&quot;button&quot;</code>
                   </td>
                   <td>
-                    <code>"button"</code>
+                    <code>&quot;button&quot;</code>
                   </td>
                   <td></td>
                 </tr>
@@ -521,9 +522,11 @@ export default function ButtonPage() {
                   </th>
                   <td>Set button variant</td>
                   <td>
-                    <code>"solid"</code> | <code>"outlined"</code> |{" "}
-                    <code>"dashed"</code> | <code>"light"</code> |{" "}
-                    <code>"text"</code>
+                    <code>&quot;solid&quot;</code> |{" "}
+                    <code>&quot;outlined&quot;</code> |{" "}
+                    <code>&quot;dashed&quot;</code> |{" "}
+                    <code>&quot;light&quot;</code> |{" "}
+                    <code>&quot;text&quot;</code>
                   </td>
                   <td>-</td>
                   <td></td>
